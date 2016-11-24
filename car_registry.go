@@ -5,11 +5,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/op/go-logging"
 )
-
-var logger = logging.MustGetLogger("CarRegistration")
 
 
 type CarRegistration struct {
@@ -19,7 +17,7 @@ type CarRegistration struct {
 
 func (t *CarRegistration) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	
-	logger.Infof("In CarRegistration.Init: %s, %v", function, args);
+	fmt.Printf("In CarRegistration.Init: %s, %v", function, args);
 	
 	return nil, nil
 }
@@ -28,7 +26,7 @@ func (t *CarRegistration) Init(stub shim.ChaincodeStubInterface, function string
 
 func (t *CarRegistration) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	
-	logger.Infof("In CarRegistration.Query: %s, %v", function, args);
+	fmt.Printf("In CarRegistration.Query: %s, %v", function, args);
 	
 	return nil, nil
 }
@@ -37,7 +35,7 @@ func (t *CarRegistration) Query(stub shim.ChaincodeStubInterface, function strin
 
 func (t *CarRegistration) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	
-	logger.Infof("In CarRegistration.Invoke: %s, %v", function, args);
+	fmt.Printf("In CarRegistration.Invoke: %s, %v", function, args);
 	
 	return nil, nil
 }
@@ -49,6 +47,6 @@ func main() {
 	
 	err := shim.Start(new(CarRegistration))
 	if err != nil {
-		logger.Errorf("Error starting CarRegistration chaincode: %s", err)
+		fmt.Printf("Error starting CarRegistration chaincode: %s", err)
 	}
 }
