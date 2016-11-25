@@ -30,7 +30,7 @@ func (t *CarRegistration) Query(stub shim.ChaincodeStubInterface, function strin
 	fmt.Printf("In CarRegistration.Query: %s, %v", function, args);
 	
 	if len(args) != 1 {
-		return nil, errors.New("{ \"Error\": \"Incorrect number of arguments. Expecting 1: name of the key to read\" }")
+		return nil, errors.New("Incorrect number of arguments. Expecting 1: name of the key to read")
 	}
 	
 	valAsbytes, err := stub.GetState(args[0])
@@ -48,7 +48,7 @@ func (t *CarRegistration) Invoke(stub shim.ChaincodeStubInterface, function stri
 	fmt.Printf("In CarRegistration.Invoke: %s, %v", function, args);
 	
 	if len(args) != 2 {
-		return nil, errors.New("{ \"Error\": \"Incorrect number of arguments. Expecting 2: name of the key and value to write\" }")
+		return nil, errors.New("Incorrect number of arguments. Expecting 2: name of the key and value to write")
 	}
 	
 	err := stub.PutState(args[0], []byte(args[1]))
